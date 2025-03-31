@@ -11,7 +11,7 @@ namespace API.Controllers;
 public class UsersController(DataContext context) : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers() // IEnumerable is a type of list
     {
         var users = await context.Users.ToListAsync();
 
@@ -19,7 +19,7 @@ public class UsersController(DataContext context) : ControllerBase
     }
 
     [HttpGet("{id:int}")] // /api/users/{id}  e.g /api/users/2
-    public async Task<ActionResult<AppUser>> GetUsers(int id)
+    public async Task<ActionResult<AppUser>> GetUser(int id)
     {
         var user = await context.Users.FindAsync(id);
 
